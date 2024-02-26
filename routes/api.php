@@ -2,18 +2,18 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\veiculosEletricosController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+route::get('/', function(){return Response()->json(['Sucesso'=>true]);});
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+route::get('/veiculoseletricos',[veiculosEletricosController::class,'index']);
+
+route::get('/veiculoseletricos/{id}',[veiculosEletricosController::class,'show']);
+
+route::put('/veiculoseletricos/{id}',[veiculosEletricosController::class,'update']);
+route::delete('/veiculoseletricos/{id}',[veiculosEletricosController::class,'destroy']);
+route::post('/veiculoseletricos',[veiculosEletricosController::class,'store']);
+
+
+
+
